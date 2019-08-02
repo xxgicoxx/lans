@@ -1,4 +1,4 @@
-Copyright (c) 2019 the HidratadO Project
+Copyright (c) 2019 the Lans Project
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
