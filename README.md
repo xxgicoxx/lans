@@ -18,7 +18,7 @@ npm install
 npm start
 ````
 
-### Deployment
+### Build
 ````
 # Package
 npm run package
