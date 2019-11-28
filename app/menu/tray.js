@@ -32,7 +32,7 @@ create = () => {
       { type: 'separator' },
       { label: 'About', 
         click () {
-          shell.openExternalSync('https://github.com/xxgicoxx/lans')
+          shell.openExternal('https://github.com/xxgicoxx/lans')
         }
       },
       { label: 'Quit', 

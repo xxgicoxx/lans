@@ -25,8 +25,10 @@
     "initial"
   ],
   "dependencies": {
-    "electron": "^5.0.8",
-    "electron-packager": "^14.0.3",
     "electron-store": "^4.0.0"
+  },
+  "devDependencies": {
+    "electron": "^5.0.12",
+    "electron-packager": "^14.1.1"
   }
 }
