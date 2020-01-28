@@ -1,5 +1,5 @@
 # Lans
-Lans is an application for Mac OS to create a list of applications to open at the same time.
+Application for Mac OS to create a list of applications to open at the same time.
 
 ![Lans](https://i.imgur.com/I61jbS9.png)
 

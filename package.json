@@ -2,7 +2,7 @@
   "name": "lans",
   "productName": "Lans",
   "version": "1.0.0",
-  "description": "Lans is an application for Mac OS to create a list of applications to open at the same time.",
+  "description": "Application for Mac OS to create a list of applications to open at the same time",
   "author": "Giovani de Oliveira <giovanioliveira@outlook.com.br>",
   "license": "MIT",
   "main": "app/app.js",
