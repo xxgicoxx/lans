@@ -1,5 +1,5 @@
 # Lans
-Application for Mac OS to create a list of applications to open at the same time.
+Application to create a list of applications to open at the same time.
 
 ![Lans](https://i.imgur.com/I61jbS9.png)
 
@@ -9,22 +9,37 @@ Application for Mac OS to create a list of applications to open at the same time
 ### Running
 The application run locally, just package and use.
 
+### Electron
+````
+# Install
+npm i -D electron@latest
+````
+
 ### Run
 ````
 # Install dependencies
 npm install
 
-# Run
+# Start
 npm start
 ````
 
-### Build
+### Build Windows
 ````
 # Package
-npm run package
+npm run package-windows
 
 # Get your version
-out/Lans-darwin-x64/Lans.app
+release-builds/Lans-win32-x64/Lans.exe
+````
+
+### Build MacOS
+````
+# Package
+npm run package-macos
+
+# Get your version
+release-builds/Lans-darwin-x64/Lans.app
 ````
 
 ### Built With

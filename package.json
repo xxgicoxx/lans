@@ -1,14 +1,15 @@
 {
   "name": "lans",
   "productName": "Lans",
-  "version": "1.0.0",
-  "description": "Application for Mac OS to create a list of applications to open at the same time",
+  "version": "1.1.0",
+  "description": "Application to create a list of applications to open at the same time.",
   "author": "Giovani de Oliveira <giovanioliveira@outlook.com.br>",
   "license": "MIT",
-  "main": "app/app.js",
+  "main": "app.js",
   "scripts": {
     "start": "electron .",
-    "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./app/assets/icons/icon.icns --overwrite"
+    "package-macos": "electron-packager ./ --platform=darwin --arch=x64 --out=release-builds --icon=./app/resources/icons/icon.icns --overwrite",
+    "package-windows": "electron-packager ./ --platform=win32 --arch=x64 --out=release-builds --icon=./app/resources/icons/icon.ico --overwrite --asar"
   },
   "repository": {
     "type": "git",
@@ -19,16 +20,19 @@
   },
   "homepage": "https://github.com/xxgicoxx/lans/",
   "keywords": [
-    "electron",
     "lans",
-    "tasks",
-    "initial"
+    "open",
+    "list",
+    "applications"
   ],
   "dependencies": {
     "electron-store": "^4.0.0"
   },
   "devDependencies": {
     "electron": "^5.0.12",
-    "electron-packager": "^14.1.1"
+    "electron-packager": "^14.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1"
   }
 }
