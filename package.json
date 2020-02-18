@@ -1,7 +1,7 @@
 {
   "name": "lans",
   "productName": "Lans",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Application to create a list of applications to open at the same time.",
   "author": "Giovani de Oliveira <giovanioliveira@outlook.com.br>",
   "license": "MIT",
@@ -26,10 +26,10 @@
     "applications"
   ],
   "dependencies": {
+    "electron": "^8.0.1",
     "electron-store": "^4.0.0"
   },
   "devDependencies": {
-    "electron": "^5.0.12",
     "electron-packager": "^14.1.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
