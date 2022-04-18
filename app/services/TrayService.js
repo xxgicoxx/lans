@@ -11,31 +11,45 @@ let tray = null;
 
 class TrayService {
   create() {
-    tray = new Tray(path.join(__dirname, '../resources/images/trayTemplate.png'));
+    tray = new Tray(this.getIconPath());
+
     const contextMenu = Menu.buildFromTemplate([
       {
         label: 'Open Applications',
-        click() {
-          const paths = electronStore.get('paths', []);
+        async click() {
+          const paths = await electronStore.get('paths', []);
 
-          if (paths != null) {
-            paths.forEach((e) => {
-              shell.openItem(e);
+          if (paths != null && paths.filePaths) {
+            paths.filePaths.forEach((e) => {
+              shell.openPath(e);
             });
           }
         },
       },
       {
         label: 'Set Applications',
-        click() {
-          const paths = dialog.showOpenDialog({ defaultPath: '/Applications', properties: ['openFile', 'multiSelections'], filters: [{ name: 'Applications', extensions: ['app', 'exe'] }] });
+        async click() {
+          const paths = await dialog.showOpenDialog(
+            {
+              defaultPath: '/Applications',
+              properties: ['openFile', 'multiSelections'],
+              filters: [
+                {
+                  name: 'Applications',
+                  extensions: ['app', 'exe'],
+                },
+              ],
+            },
+          );
 
           if (paths != null) {
             electronStore.set('paths', paths);
           }
         },
       },
-      { type: 'separator' },
+      {
+        type: 'separator',
+      },
       {
         label: 'About',
         click() {
@@ -52,6 +66,14 @@ class TrayService {
 
     tray.setToolTip('Lans');
     tray.setContextMenu(contextMenu);
+  }
+
+  getIconPath() {
+    if (app.isPackaged) {
+      return path.join(process.resourcesPath, 'static', 'img', 'trayTemplate.png');
+    }
+
+    return `${path.join(__dirname, '../static/img/trayTemplate.png')}`;
   }
 }
 
