@@ -7,6 +7,8 @@ const ElectronStore = require('electron-store');
 const electronStore = new ElectronStore();
 const { dialog } = require('electron');
 
+const { constants } = require('../utils');
+
 let tray = null;
 
 class TrayService {
@@ -15,9 +17,9 @@ class TrayService {
 
     const contextMenu = Menu.buildFromTemplate([
       {
-        label: 'Open Applications',
+        label: constants.MENU_OPEN_APPLICATIONS,
         async click() {
-          const paths = await electronStore.get('paths', []);
+          const paths = await electronStore.get(constants.PATHS, []);
 
           if (paths != null && paths.filePaths) {
             paths.filePaths.forEach((e) => {
@@ -27,53 +29,53 @@ class TrayService {
         },
       },
       {
-        label: 'Set Applications',
+        label: constants.MENU_SET_APPLICATIONS,
         async click() {
           const paths = await dialog.showOpenDialog(
             {
-              defaultPath: '/Applications',
-              properties: ['openFile', 'multiSelections'],
+              defaultPath: constants.MENU_APPLICATIONS_DEFAULT_PATH,
+              properties: constants.MENU_APPLICATIONS_PROPERTIES,
               filters: [
                 {
-                  name: 'Applications',
-                  extensions: ['app', 'exe'],
+                  name: constants.MENU_APPLICATIONS_FILTER,
+                  extensions: constants.MENU_APPLICATIONS_EXTENSIONS,
                 },
               ],
             },
           );
 
           if (paths != null) {
-            electronStore.set('paths', paths);
+            electronStore.set(constants.PATHS, paths);
           }
         },
       },
       {
-        type: 'separator',
+        type: constants.SEPARATOR,
       },
       {
-        label: 'About',
-        click() {
-          shell.openExternal('https://github.com/xxgicoxx/lans');
+        label: constants.MENU_ABOUT,
+        async click() {
+          shell.openExternal(constants.MENU_ABOUT_LINK);
         },
       },
       {
-        label: 'Quit',
-        click() {
+        label: constants.MENU_QUIT,
+        async click() {
           app.quit();
         },
       },
     ]);
 
-    tray.setToolTip('Lans');
+    tray.setToolTip(constants.APP_NAME);
     tray.setContextMenu(contextMenu);
   }
 
   getIconPath() {
     if (app.isPackaged) {
-      return path.join(process.resourcesPath, 'static', 'img', 'trayTemplate.png');
+      return path.join(process.resourcesPath, ...constants.PATH_TRAY_TEMPLATE_PACKAGE);
     }
 
-    return `${path.join(__dirname, '../static/img/trayTemplate.png')}`;
+    return `${path.join(__dirname, constants.PATH_TRAY_TEMPLATE)}`;
   }
 }
 

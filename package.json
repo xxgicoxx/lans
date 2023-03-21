@@ -17,12 +17,12 @@
     "appId": "dev.gico.lans",
     "asar": true,
     "mac": {
-      "target": "dmg",
+      "target": "zip",
       "category": "public.app-category.utilities"
     },
     "win": {
       "target": [
-        "portable"
+        "zip"
       ],
       "publisherName": "Giovani de Oliveira"
     },
