@@ -1,9 +1,12 @@
 # Lans
-Application to create a list of applications to open at the same time.
+An application to create a list of applications to be opened simultaneously.
 
 <p align="center">
   <img src="assets/imgs/lans.png">
 </p>
+
+# Features
+* Open multiple applications simultaneously
 
 # Prerequisites
 * [Node.js](https://nodejs.org/en/)

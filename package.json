@@ -2,7 +2,7 @@
   "name": "lans",
   "productName": "Lans",
   "version": "1.1.1",
-  "description": "Application to create a list of applications to open at the same time.",
+  "description": "An application to create a list of applications to be opened simultaneously.",
   "author": "Giovani de Oliveira <giovanioliveira@outlook.com.br>",
   "license": "MIT",
   "main": "app.js",
